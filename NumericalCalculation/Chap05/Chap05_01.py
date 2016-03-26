@@ -1,3 +1,5 @@
+# python3 ./Chap05_01.py
+
 def demo(newitem, old_list = None):
     if old_list in None:
         old_list = []
