@@ -6,11 +6,11 @@ def demo(newitem, old_list = None):
 
 if __name__ == '__main__':
     try:
-        print demo('5', [1, 2, 3, 4])
-        print demo('aaa', ['a', 'b'])
-        print demo('a')
-        print demo('b')
-    except e:
+        print(demo('5', [1, 2, 3, 4]))
+        print(demo('aaa', ['a', 'b']))
+        print(demo('a'))
+        print(demo('b'))
+    except (TypeError) as e:
         print(e)
 
 # ~/Code/Python/NumericalCalculation/Chap05(branch:master*)
@@ -24,7 +24,4 @@ if __name__ == '__main__':
 
 # ~/Code/Python/NumericalCalculation/Chap05(branch:master*)
 # » python3 Chap05_01.py                                                                                                                                               pi@raspberrypi
-#   File "Chap05_01.py", line 9
-#     print demo('5', [1, 2, 3, 4])
-#              ^
-# SyntaxError: invalid syntax
+# argument of type 'NoneType' is not iterable
