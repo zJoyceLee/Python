@@ -37,3 +37,32 @@ class QuestionMethodTests(TestCase):
         time = timezone.now() - datetime.timedelta(hours=1)
         recent_question = Question(pub_date=time)
         self.assertEqual(recent_question.was_published_recently(), True)
+
+"""
+# test client
+>>>python manage.py shell
+
+>>>(all)
+from django.test.utils import setup_test_environment
+setup_test_environment()
+
+from django.test import Client
+client = Client()
+
+response = client.get('/')
+response.status_code
+
+from django.core.urlresolvers import reverse
+response = client.get(reverse('polls:index'))
+response.status_code
+response.content
+
+
+from polls.models import Question
+from django.utils import timezone
+q = Question(question_text="Who is your favorite Beatle?", pub_date=timezone.now())
+q.save()
+response = client.get('/polls/')
+response.content
+response.context['latest_question_list']
+"""
