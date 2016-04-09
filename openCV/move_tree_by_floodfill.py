@@ -13,6 +13,13 @@ def fillArea(img):
     retval, floodfilled, mask, rect = cv2.floodFill(image, None, (0, 0), 255)
     return floodfilled
 
+def move(img, myshape, deltaX, deltaY):
+    rows, cols = myshape.shape
+    for r in range(rows):
+        for c in range(cols):
+            if treeShape[r][c] > 1:
+                img[195+r+deltaY, 540+c-deltaX] = img[195+r, 540+c]
+    return img
 
 img = cv2.imread('./1.jpg')
 tree = img[190:510, 535:815]
@@ -20,15 +27,12 @@ treeShape = fillArea(tree)[5:315, 5:275]
 tree = tree[5:315, 5:275]
 cv2.imshow('FloodFilled', treeShape)
 
-deltaX = 480
-deltaY = 5
+kernel = np.ones((5, 5), np.uint8)
+dilation = cv2.dilate(treeShape, kernel, iterations = 1)
+cv2.imshow('dilation', dilation)
 
-rows, cols = treeShape.shape
-for r in range(rows):
-    for c in range(cols -5 ):
-        if treeShape[r][c] > 1:
-            img[195+r+deltaY, 540+c-deltaX] = img[195+r, 540+c]
+img = move(img, dilation, 480, 5)
+cv2.imshow('AfterMoveDilation', img)
 
-cv2.imshow('afterMoveTree', img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
