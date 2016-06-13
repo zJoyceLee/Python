@@ -1,3 +1,4 @@
+#! /usr/bin/python3
 # python3 ./calculate.py
 
 # Token types
