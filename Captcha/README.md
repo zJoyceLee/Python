@@ -7,7 +7,7 @@ Simple Version
 ----
 How to run:
 
-    python3 captcha.
+    python3 captcha.py
 
 Python3 need:
 
