@@ -28,9 +28,11 @@ def merge_sort(lst):
     return merge(left, right)
 
 class Test(unittest.TestCase):
-    def test_merge_sort(self):
+    def test_zero_merge_sort(self):
         self.assertEqual(merge_sort([]), [])
-
+    def test_one_merge_sort(self):
+        self.assertEqual(merge_sort([1]), [1])
+    def test_merge_sort(self):
         self.assertEqual(
             merge_sort([1, 2, 3, 4, 5, 6, 7, 8, 9]),
             [1, 2, 3, 4, 5, 6, 7, 8, 9]
