@@ -8,7 +8,7 @@ compare times:      ((nlogn)/2) ~ (nlogn  -n + 1)
 assignment times: 2nlogn
 """
 
-import  unittest
+import unittest
 from collections import deque
 
 def merge_sort(lst):
@@ -28,19 +28,21 @@ def merge_sort(lst):
     return merge(left, right)
 
 class Test(unittest.TestCase):
-    def test_zero_merge_sort(self):
+    def test_null_sort(self):
         self.assertEqual(merge_sort([]), [])
-    def test_one_merge_sort(self):
+    def test_one_sort(self):
         self.assertEqual(merge_sort([1]), [1])
-    def test_merge_sort(self):
+    def test_sort(self):
         self.assertEqual(
             merge_sort([1, 2, 3, 4, 5, 6, 7, 8, 9]),
             [1, 2, 3, 4, 5, 6, 7, 8, 9]
         )
-        self.assertEqual(merge_sort([9, 8, 7, 6, 5, 4, 3, 2, 1]),
+        self.assertEqual(
+            merge_sort([9, 8, 7, 6, 5, 4, 3, 2, 1]),
             [1, 2, 3, 4, 5, 6, 7, 8, 9]
         )
-        self.assertEqual(merge_sort([1, 9, 2, 8, 3, 7, 4, 6, 5]),
+        self.assertEqual(
+            merge_sort([1, 9, 2, 8, 3, 7, 4, 6, 5]),
             [1, 2, 3, 4, 5, 6, 7, 8, 9]
         )
 
