@@ -2,10 +2,8 @@
 
 """
 stable
-space: O(n)
-time:   O(nlogn) [avg]
-compare times:      ((nlogn)/2) ~ (nlogn  -n + 1)
-assignment times: 2nlogn
+space: O(1)
+time:   O(n^2) [worst, avg]
 """
 
 import unittest
